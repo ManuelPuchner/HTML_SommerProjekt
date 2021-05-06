@@ -1,0 +1,832 @@
+
+/*************** general *****************/
+::-webkit-scrollbar
+    display: none
+html
+    --bg: #fff
+    --bg2: #00000079
+    --defineColor1: #292929
+    --defineColor1-transparent: #292929b9
+    --text-color: #000
+    --text-color2: #fff
+    --header-text-color: #fff
+    --currentClassColor: #24B143
+    --color1: #1B8570
+    --color2: #24B143
+    --borderColor: #000
+    --defineBg: #a4dc8eb7
+    --defineBg2: #24b142a6
+    --defineBg3: #DAE2BD
+    --defineBg3-transparent: #dae2bdbb
+    --button-active-color: #DAE2BD
+    --button-hover-color: #A4DC8E
+    --linkColor: #24B143
+    --brightness-filter: 75%
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+    -webkit-font-smoothing: antialiased
+    background: var(--bg)
+    overflow-x: hidden
+    box-sizing: border-box
+
+/*************** color-sheme *****************/
+@media (prefers-color-scheme: dark)
+    html
+        --bg: #171717
+        --text-color: #f7f7f7
+        --header-text-color: #f7f7f7
+        --defineBg: hsla(103, 36%, 61%, 0.72)
+        --defineBg3: #8f947b
+        --defineBg3-transparent: #8f947bbb
+        --button-hover-color: #5aad39f5
+        --button-active-color: #9caa69
+        --bg2: #27272779
+        --color1: hsl(168, 66%, 28%)
+        --brightness-filter: 50%
+    footer a
+        color: #32f05b !important
+*
+    margin: 0
+    padding: 0
+body
+    overflow-x: hidden
+    min-height: 100vh
+    display: grid
+    grid-template-rows: auto 1fr auto
+
+.overflow-hidden
+    overflow: hidden
+.pointer-events
+    pointer-events: none
+
+/*************** header *****************/
+.opacity-show
+    opacity: 1 !important
+.expand
+    z-index: 500
+    transition: height .3s
+    height: calc( 100vh - 14px )
+    nav
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+header.expand a
+    z-index: 300
+header
+    transition: height .3s ease, z-index 0s .3s
+    height: 70px
+    user-select: none
+    border-radius: 10px
+    margin: 7px
+    z-index: 100
+    color: var(--header-text-color)
+    display: flex
+    background: var(--defineColor1-transparent)
+    backdrop-filter: blur(7px)
+    position: fixed
+    width: calc( 100vw - 14px )
+
+    .branding
+        a
+            color: var(--text-color2)
+            text-decoration: none
+        h2
+            user-select: none
+            line-height: 70px
+            vertical-align: middle
+            padding-left: 75px
+            margin-left: 35px
+            background-image: url(../img/logo/transparentLogo.png)
+            background-size: 70px
+            background-repeat: no-repeat
+            background-position: left center
+    nav ~ p
+        opacity: 0
+        transition: .3s ease
+        font-size: 2em
+        position: absolute
+        top: 19px
+        right: 50px
+    nav ~ .fa-times
+        margin: 0 2px 4px 0
+        font-size: 2.15em
+    nav
+        opacity: 1
+        transition: .3s ease
+        position: absolute
+        right: 25px
+        user-select: none
+        li
+            display: inline
+            margin: 0 10px
+            a
+                transition: .25s ease
+                text-decoration: none
+                color: var(--header-text-color)
+                padding: 7px 10px
+                border-radius: 5px
+            a:hover
+                transition: .25s ease
+                background-color: var(--button-hover-color)
+                color: var(--text-color)
+            a:active
+                background-color: var(--button-active-color)
+        li:last-child
+            margin-right: 20px
+            a:hover
+                background-color: #00000000
+            a:hover i
+                color: var(--button-hover-color)
+            a
+                text-decoration: none
+            i
+                font-size: 23px
+                position: relative
+                top: 3px
+                z-index: -10
+            #cart-count
+                font-size: 12px
+                background: #ff0000
+                color: #fff
+                padding: 0 5px
+                margin-left: -10px
+                padding-left: 5px
+                padding-right: 5px
+                border-radius: 9px
+                position: relative
+                bottom: 8px
+        ul
+            line-height: 70px
+            vertical-align: middle
+        .current
+            background-color: var(--currentClassColor)
+
+main
+    transition: .3s ease
+
+/*************** flexboxes *****************/
+.flex
+    display: flex
+.col-50
+    width: 50%
+.col-33
+    width: calc( 100% / 3 )
+.col-25
+    width: 25%
+.col-75
+    width: 75%
+.col-45
+    width: 45%
+.col-55
+    width: 55%
+/*************** alignment *****************/  
+.align-center-center
+    display: flex
+    align-items: center
+    justify-content: center
+
+.section-title
+    color: var(--color1) !important
+    padding: 7%
+    padding-top: 0
+    padding-bottom: 0
+    font-weight: 500
+    font-size: 320% !important
+    text-align: center
+/*************** showcase ****************/
+.showcase
+    height: 100vh
+    .flex
+        position: relative
+        top: 50%
+        transform: translateY(-50%)
+    img
+        display: block
+        margin: 0 auto
+    h1
+        font-size: 350%
+        display: inline
+        padding: 0 60px
+        color: var(--color1)
+/**************** product presentation ****************/
+.product-presentation
+    .section-title
+        padding-bottom: 7%
+    .flex
+        margin: 5% 0
+        padding: 0 5% 0 5%
+
+    h1
+        color: var(--color2)
+        text-align: center
+        font-size: 3.15em
+    img
+        display: block
+        margin: 0 auto
+        height: 400px
+        transition: .4s ease
+    a
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        opacity: 0
+        transition: .4s ease
+        color: #fff
+        text-decoration: none
+        font-size: 1.2rem
+    .col-50
+        position: relative
+    img:hover ~ a, a:hover, .col-50:hover > a
+        opacity: 1
+    a:after
+        width: 0%
+        content: ""
+        position: absolute
+        height: 100%
+        padding-top: 2px
+        bottom: -4px
+
+        right: 0
+        border-bottom: 2px solid #fff
+        transition: width 500ms
+    a:hover:after
+        left: 0
+        width: 100%
+    img:hover, .col-50:hover > img
+        filter: brightness(66%) blur(2px)
+/*************** featured products *****************/
+.featured, .partners, .products, .recommendations
+    width: 90%
+    margin: 100px auto 0 auto
+    .flex
+        align-items: stretch
+        padding: 0 5% 0 5%
+        justify-content: space-around
+        .wrapper
+            max-width: 345.73px
+            box-sizing: border-box
+            background: var(--defineBg)
+            margin: 2%
+            border-radius: 15px
+            .top__img
+                z-index: 20
+                position: relative
+                width: 70%
+                margin: 0 15%
+                border-radius: 5%
+                background-color: var(--bg)
+                img
+                    z-index: -30
+                    width: 100%
+                    display: block
+                    margin-top: 18%
+                    margin-bottom: 0
+                    border-radius: 5%
+                    transition: .4s ease
+                &:hover img
+                    z-index: -500
+                    opacity: .2
+                    transition: .4s ease
+                    background-color: var(--bg)
+                .name-and-links
+                    // background: var(--defineBg2)
+                    height: 100%
+                    width: 100%
+                    position: absolute
+                    bottom: 0
+                    z-index: 300
+                    transition: .4s ease
+                    opacity: 0
+                    transform: rotateX(180deg)
+                    a,p
+                        color: var(--text-color) !important
+                        text-decoration: none !important
+                        position: absolute
+                        bottom: 50%
+                        left: 50%
+                        transform: translate(-50%, 50%)
+                        text-decoration: none
+                        font-size: 120%
+                        padding: 3.5% 4.5%
+                        border: 2px solid var(--text-color)
+                        color: var(--text-color)
+                        font-weight: 500
+
+                &:hover .name-and-links
+                    transition: .4s ease
+                    opacity: 1
+                    transform: rotateX(360deg)
+                &:hover .name-and-links img
+                    opacity: 1
+            .bottom__description
+                margin: auto 0
+                h3
+                    padding: 10% 13.5%
+                    text-align: center
+                    font-weight: 400
+/*************** partners *****************/
+.partners
+    .wrapper
+        background: var(--defineBg2) !important
+
+/*************************  Pages  ***************************/
+#product-page
+    margin: 84px 7px 0
+    .product-information
+        .product__name, .information-list
+            color: var(--text-color)
+        .product-bottom-infos
+            margin-right: 10%
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-between
+            .price
+                width: 50%
+                color: var(--text-color)
+            .input-wrapper
+                margin-top: 5px
+                width: 50%
+                position: relative
+                label
+                    color: var(--text-color)
+                    position: absolute
+                    top: -15px
+                input
+                    max-width: 100%
+                    margin-top: 5px
+                    background: var(--defineBg)
+                    border: none
+                    padding: 2%
+                    border-radius: 7px
+                    font-weight: bold
+                    font-size: 1.04rem
+            p
+                line-height: 41px
+                vertical-align: middle
+                text-align: end
+                width: 50%
+                color: var(--text-color)
+                font-size: 1.2rem
+            i
+                font-size: 1.5rem
+                color: var(--color1)
+                &:hover
+                    transition: 200ms ease
+                    color: var(--linkColor)
+                &:active
+                    transition-duration: 60ms
+                    color: var(--button-active-color)
+    .recommendations
+        margin: 3% auto
+        .section-title
+            font-size: 2.4rem !important
+        .flex
+            padding: 0
+        a
+            color: #000
+            text-decoration: none
+            &:hover
+                text-decoration: underline
+        .top__img
+            width: 85%
+            margin: 0 7.5%
+            img
+                margin-top: 9%
+    .product-preview
+        margin: 0 5%
+        padding: 5% 0
+        .main-img
+            width: 90%
+            img
+                margin-left: 5%
+                width: 100%
+        .img-selector
+            width: fit-content
+            justify-content: space-between
+            flex-direction: column
+            border-right: 1px #8f8f8f solid
+            border-left: 1px #8f8f8f solid
+            padding: 2% 1.5%
+            hr
+                width: 80%
+                display: block
+                margin: 0 auto
+                border: none
+                border-bottom: 1px solid #8f8f8f
+            img
+                transition: .2s ease
+                border-radius: 5px
+                width: 55px
+                height: auto
+                &:first-child
+                    margin-top: 0
+                &:last-child
+                    margin-bottom: 0
+                &:hover
+                    filter: brightness(var(--brightness-filter))
+                    transition: .2s ease
+    .product-information
+        padding: 5% 0
+        .product__name
+            margin-top: 8%
+            font-size: 2.15em
+        .information-list
+            margin-top: 3%
+            margin-left: 25px
+            li
+                margin: 5px 0
+
+#products-page
+    section
+        margin-top: 84px
+        .section-title
+            padding-top: 7%
+        p
+            display: block
+            width: 80%
+            margin: 6% auto 0 auto
+            color: var(--color1)
+            font-size: 1.15em
+            text-align: center
+#shop-page, #cart-page
+    margin-top: 84px
+    .side-menu
+        position: fixed
+        left: 7px
+        width: 25%
+        border-radius: 10px
+        background: var(--defineBg2)
+        .wrapper
+            padding: 20px
+            h3
+                color: var(--text-color)
+            ul
+                list-style-type: none
+            li
+                margin: 10px 0
+            input
+                margin: 3px 0 0 5px
+                width: 15px
+                height: 15px
+            label
+                color: var(--text-color)
+                margin-left: 10px
+                vertical-align: bottom
+    .products
+        margin: 0
+        margin-left: calc( 25% + 14px )
+        .products-wrapper
+            border-radius: 10px
+            width: calc( 75vw - 21px )
+            display: inline-block
+            background: var(--bg2)
+            h1
+                padding: 30px
+                margin-top: 15px
+                text-align: center
+                font-size: 260%
+                color: var(--text-color2)
+            .wrapper
+                position: relative
+                .top__img
+                    margin: 0 8%
+                    width: 84%
+                    img
+                        margin-top: 9%
+                .bottom__description
+                    display: flex
+                    justify-content: space-between
+                    .icons
+                        max-width: 80px
+                        padding: 10% 8% 10% 0
+                        i
+                            transition: color  .2s ease
+                            vertical-align: bottom
+                            padding: 10%
+                            font-size: 150%
+                            float: right
+                            color: var(--color1)
+                        i:last-child
+                            padding: 20% 10% 0
+                        i:hover
+                            transition: color  200ms ease
+                            color: var(--linkColor)
+                        i:active
+                            transition-duration: 60ms
+                            color: var(--button-active-color)
+                    a
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        color: var(--text-color)
+                        text-decoration: none
+                        &:hover
+                            text-decoration: underline
+                    h3
+                        padding: 10% 5% 10% 8%
+                        margin-left: 8px
+                        text-align: left
+#cart-page
+    .side-menu
+        left: initial
+        right: 7px
+        #checkout__button
+            font-weight: 500
+            transition: .2s ease
+            background-color: var(--linkColor)
+            color: var(--text-color2)
+            text-decoration: none
+            border-radius: 7px
+            display: block
+            margin-top: 10%
+            padding: 5%
+        #checkout__button:hover
+            color: #000
+            transition: .2s ease
+            background-color: var(--button-hover-color)
+        #checkout__button:active
+            background-color: var(--button-active-color)
+    .cart-products
+        margin: 0
+        width: calc( 75% - 21px )
+        margin-right: calc( 25% - 14px )
+        margin-left: 7px
+
+        .cart-product
+            margin: 2% 0 2% 2%
+            padding: 2%
+            border-radius: 10px
+            display: flex
+            background-color: var(--bg2)
+            &:first-child
+                margin-top: 0
+            .img-container
+                width: 20%
+                img
+                    border-radius: 5%
+                    width: 100%
+                    height: 100%
+            .product-text
+                padding-left: 5%
+                margin: 3% 0
+                color: var(--text-color)
+                width: 80%
+                position: relative
+                .product-name
+                    color: var(--color2)
+                    font-size: 1.65rem
+                    padding-bottom: 3px
+                ul
+                    list-style-type: none
+                    li
+                        font-size: 1.06rem
+                .icons
+                    position: absolute
+                    bottom: 0
+                    right: 5%
+                    font-size: 1.5rem
+                    color: var(--text-color)
+                    i
+                        transition: color .2s ease
+                        color: var(--color1)
+                    i:hover
+                        transition: color 200ms ease
+                        color: var(--linkColor)
+                    i:active
+                        transition-duration: 60ms
+                        color: var(--button-active-color)
+
+/**************** footer ****************/
+footer
+    color: var(--text-color)
+    transition: .3s ease
+    height: 97px
+    border-radius: 10px
+    margin: 7px
+    background: var(--defineBg3-transparent)
+    padding: 70px 5%
+    .col-33
+        padding-left: 7%
+        h2
+            font-weight: 400
+            font-size: 180%
+        ul
+            margin-top: 20px
+            li
+                margin-top: 5px
+                a
+                    color: var(--linkColor)
+                    text-decoration: underline
+
+/**************** responsive ****************/
+@media screen and ( max-width: 992px )
+    .showcase
+        h1
+            text-align: center
+            display: block
+
+    .featured .flex, .partners .flex
+        align-items: center !important
+    .flex
+        flex-direction: column
+    .col-50
+        width: 100%
+    .col-55
+        width: 100%
+        margin: 0 !important
+    .col-45
+        width: 100%
+        margin: 0 !important
+    .res-rev
+        flex-direction: column-reverse
+    footer
+        height: initial
+        text-align: center
+        .flex
+            .col-33
+                width: 100%
+                padding: 0
+            .col-33:nth-child(1) h2
+                margin-top: 0
+            h2
+                margin-top: 20px
+            ul
+                margin: 0 !important
+                list-style-type: none
+    #products-page section p
+        width: 85%
+        margin: 0 auto
+    #shop-page, #cart-page
+        .side-menu
+
+            position: static
+            margin: 0 7px
+            width: calc( 100vw - 14px )
+            border-radius: 10px
+            ul
+                display: flex
+                flex-wrap: wrap
+                margin-top: 2%
+            li
+                width: 25%
+            a
+                margin: 4% 0 3% 0 !important
+                padding: 2% !important
+        .products
+            margin-left: 0
+            .products-wrapper
+                width: calc( 100vw - 14px )
+                margin: 7px
+        .flex
+            align-items: stretch
+            flex-direction: row
+            .col-33
+                width: calc( 100% / 3 )
+    #cart-page
+        .side-menu
+            top: 0
+            height: initial
+            h3
+                margin: 0
+                text-align: center
+        .products
+            margin: 2% auto 0
+            width: calc(100% - 14px)
+            .cart-product
+                margin-left: 0
+                ul
+                    padding-bottom: 33px
+                .img-container
+                    min-width: 25%
+
+    #product-page
+        .product-information
+            padding-top: 3% !important
+            .product-bottom-infos
+                margin: 3% 6% 0 !important
+                .price, .input-wrapper
+                    text-align: start
+
+        .recommendations
+            margin-left: 0
+            margin-right: 0
+            width: 100%
+            .section-title
+                font-size: 2rem !important
+            .flex
+                flex-wrap: wrap
+                flex-direction: row
+                .col-25
+                    width: 45%
+                    margin: 2.5%
+        .product-preview
+            padding: 0
+            .main-img
+                width: 100%
+                img
+                    display: block
+                    margin: 0 auto
+                    width: 60%
+            .img-selector
+                justify-content: space-evenly
+                border: none
+                height: 55px
+                flex-direction: row
+                width: calc( 100% - 21px )
+                hr
+                    display: none
+                        
+        .product-information
+            text-align: center
+            .product__name
+                margin-top: 0
+            .information-list
+                margin-left: 0
+                li
+                
+@media screen and ( max-width: 720px )
+    nav
+        z-index: 0
+    nav > ul
+        transition: 0s ease
+        opacity: 0 !important
+        display: flex
+        flex-wrap: wrap
+        list-style-type: none
+        line-height: 25px !important
+    nav li
+        margin: 0 !important
+        width: 50%
+        a
+            display: table
+            margin: 10% auto
+    nav ~ p
+        transition: opacity .3s ease
+        opacity: 1
+    header:not(.expand) nav
+        display: none !important
+    #shop-page
+        .side-menu
+            li
+                width: 50%
+        .flex
+            flex-direction: column
+            align-items: center !important
+            .col-33
+                width: 100%
+    #cart-page
+        .cart-product
+            text-align: center
+            flex-direction: column
+            .product-text
+                width: 100% !important
+                padding-left: 0 !important
+                .icons
+                    bottom: -10px !important
+                    left: 50%
+                    transform: translateX(-50%)
+            .img-container
+                margin: 0 auto
+
+
+@media screen and ( min-width: 720px )
+    nav
+        z-index: 100
+    nav > ul
+        transition: .1s ease
+        opacity: 1
+    nav ~ p
+        transition: opacity .3s ease
+        opacity: 0
+
+@media screen and ( max-width: 576px )
+    .showcase
+        .flex
+            img
+                width: 90vw
+                height: initial
+            h1
+                padding: 0
+                width: 100%
+                text-align: center
+    .product-presentation
+        img
+            width: 90%
+            height: initial
+    .featured, .partners
+        .flex
+            .wrapper
+                width: 80vw
+    #product-page
+        .recommendations
+            .flex
+                .col-25
+                    width: 95%
+                    margin: 2.5%
+
+@media screen and ( max-width: 350px )
+    #shop-page
+        .side-menu
+            li
+                width: 100%
