@@ -27,6 +27,7 @@ html
     background: var(--bg)
     overflow-x: hidden
     box-sizing: border-box
+    scroll-behavior: smooth
 
 /*************** color-sheme *****************/
 @media (prefers-color-scheme: dark)
@@ -196,20 +197,54 @@ main
 /*************** showcase ****************/
 .showcase
     height: 100vh
+    position: relative
     .flex
         position: relative
         top: 50%
         transform: translateY(-50%)
     img
         display: block
-        margin: 0 auto
+        width: 80%
+        margin: 0 5% 0 15%
     h1
-        font-size: 350%
+        font-size: 4.5rem
         display: inline
         padding: 0 60px
         color: var(--color1)
+    p
+        padding: 0 63px
+        font-size: 1.5rem
+        font-weight: bold
+    .scrolldown 
+        position: absolute
+        bottom: 40px
+        right: 50vw
+        transform: translateX(50%)
+        opacity: 1
+        animation-name: scrollIcon
+        animation-duration: 2s
+        animation-iteration-count: infinite
+        animation-timing-function: ease
+
+.scrolldown i
+    font-size: 34px
+    color: var(--text-color)
+
+
+@keyframes scrollIcon
+    from
+        height: 35px
+        opacity:0
+    10%
+        height: 35px
+        opacity:1
+    to
+        height: 18px
+        opacity: 0
+            
 /**************** product presentation ****************/
 .product-presentation
+    padding-top: 125px
     .section-title
         padding-bottom: 7%
     .flex
@@ -361,6 +396,10 @@ main
                     border-radius: 7px
                     font-weight: bold
                     font-size: 1.04rem
+                    border: 2px solid #00000000
+                input:focus
+                    outline: none
+                    border: 2px solid var(--text-color)
             p
                 line-height: 41px
                 vertical-align: middle
@@ -581,9 +620,24 @@ main
                     list-style-type: none
                     li
                         font-size: 1.06rem
+                input.quantity-selector
+                    position: absolute
+                    bottom: -14px
+                    max-width: 100%
+                    margin-top: 5px
+                    background: var(--defineBg)
+                    border: none
+                    padding: 0.8%
+                    border-radius: 7px
+                    font-weight: bold
+                    font-size: 1.015rem
+                    border: 2px solid #00000000
+                input:focus
+                    outline: none
+                    border: 2px solid var(--text-color)
                 .icons
                     position: absolute
-                    bottom: 0
+                    bottom: -14px
                     right: 5%
                     font-size: 1.5rem
                     color: var(--text-color)
@@ -623,8 +677,12 @@ footer
 @media screen and ( max-width: 992px )
     .showcase
         h1
+            margin-top: 15%
+        h1, p
             text-align: center
             display: block
+        img
+            margin: 0 auto
 
     .featured .flex, .partners .flex
         align-items: center !important
@@ -782,8 +840,13 @@ footer
             .product-text
                 width: 100% !important
                 padding-left: 0 !important
+                ul
+                    padding-bottom: 75px
+                input.quantity-selector
+                    left: 50%
+                    transform: translateX(-50%)
                 .icons
-                    bottom: -10px !important
+                    bottom: 30px !important
                     left: 50%
                     transform: translateX(-50%)
             .img-container

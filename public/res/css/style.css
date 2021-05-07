@@ -28,6 +28,7 @@ html {
   background: var(--bg);
   overflow-x: hidden;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /*************** color-sheme *****************/
@@ -259,6 +260,7 @@ main {
 /*************** showcase ****************/
 .showcase {
   height: 100vh;
+  position: relative;
 }
 .showcase .flex {
   position: relative;
@@ -267,16 +269,74 @@ main {
 }
 .showcase img {
   display: block;
-  margin: 0 auto;
+  width: 80%;
+  margin: 0 5% 0 15%;
 }
 .showcase h1 {
-  font-size: 350%;
+  font-size: 4.5rem;
   display: inline;
   padding: 0 60px;
   color: var(--color1);
 }
+.showcase p {
+  padding: 0 63px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.showcase .scrolldown {
+  position: absolute;
+  bottom: 40px;
+  right: 50vw;
+  transform: translateX(50%);
+  opacity: 1;
+  -webkit-animation-name: scrollIcon;
+          animation-name: scrollIcon;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
 
+.scrolldown i {
+  font-size: 34px;
+  color: var(--text-color);
+}
+
+@-webkit-keyframes scrollIcon {
+  from {
+    height: 35px;
+    opacity: 0;
+  }
+  10% {
+    height: 35px;
+    opacity: 1;
+  }
+  to {
+    height: 18px;
+    opacity: 0;
+  }
+}
+
+@keyframes scrollIcon {
+  from {
+    height: 35px;
+    opacity: 0;
+  }
+  10% {
+    height: 35px;
+    opacity: 1;
+  }
+  to {
+    height: 18px;
+    opacity: 0;
+  }
+}
 /**************** product presentation ****************/
+.product-presentation {
+  padding-top: 125px;
+}
 .product-presentation .section-title {
   padding-bottom: 7%;
 }
@@ -453,6 +513,11 @@ main {
   border-radius: 7px;
   font-weight: bold;
   font-size: 1.04rem;
+  border: 2px solid #00000000;
+}
+#product-page .product-information .product-bottom-infos .input-wrapper input:focus {
+  outline: none;
+  border: 2px solid var(--text-color);
 }
 #product-page .product-information .product-bottom-infos p {
   line-height: 41px;
@@ -738,9 +803,26 @@ main {
 #cart-page .cart-products .cart-product .product-text ul li {
   font-size: 1.06rem;
 }
+#cart-page .cart-products .cart-product .product-text input.quantity-selector {
+  position: absolute;
+  bottom: -14px;
+  max-width: 100%;
+  margin-top: 5px;
+  background: var(--defineBg);
+  border: none;
+  padding: 0.8%;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1.015rem;
+  border: 2px solid #00000000;
+}
+#cart-page .cart-products .cart-product .product-text input:focus {
+  outline: none;
+  border: 2px solid var(--text-color);
+}
 #cart-page .cart-products .cart-product .product-text .icons {
   position: absolute;
-  bottom: 0;
+  bottom: -14px;
   right: 5%;
   font-size: 1.5rem;
   color: var(--text-color);
@@ -789,8 +871,14 @@ footer .col-33 ul li a {
 /**************** responsive ****************/
 @media screen and (max-width: 992px) {
   .showcase h1 {
+    margin-top: 15%;
+  }
+  .showcase h1, .showcase p {
     text-align: center;
     display: block;
+  }
+  .showcase img {
+    margin: 0 auto;
   }
 
   .featured .flex, .partners .flex {
@@ -1005,8 +1093,15 @@ footer .col-33 ul li a {
     width: 100% !important;
     padding-left: 0 !important;
   }
+  #cart-page .cart-product .product-text ul {
+    padding-bottom: 75px;
+  }
+  #cart-page .cart-product .product-text input.quantity-selector {
+    left: 50%;
+    transform: translateX(-50%);
+  }
   #cart-page .cart-product .product-text .icons {
-    bottom: -10px !important;
+    bottom: 30px !important;
     left: 50%;
     transform: translateX(-50%);
   }

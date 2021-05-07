@@ -240,9 +240,14 @@ if (products[product]) {
       "src",
       products.key(randNums[index]).image
     );
-    $(linksToProducts[index*2]).attr("href", products.key(randNums[index]).link);
-    $(linksToProducts[index*2+1]).attr("href", products.key(randNums[index]).link);
-
+    $(linksToProducts[index * 2]).attr(
+      "href",
+      products.key(randNums[index]).link
+    );
+    $(linksToProducts[index * 2 + 1]).attr(
+      "href",
+      products.key(randNums[index]).link
+    );
   }
 } else {
   //redirect if invalid query string

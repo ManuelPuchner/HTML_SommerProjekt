@@ -1,5 +1,5 @@
 # Manuel Puchner HTML Sommer-Projekt
-## Dieses Projekt hat zurzeit über 2700 Zeilen HTML, CSS & JavaScript code
+## Dieses Projekt hat zurzeit über 2800 Zeilen HTML, CSS & JavaScript code
 
 `run npm install to install the needed dependencies`
 
