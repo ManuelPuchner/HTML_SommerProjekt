@@ -8,16 +8,24 @@ if (category != null) {
     }
   }
 }
-
 $("#showAIOcheckbox").click(() => {
   $(".AIO").toggle(this.checked);
+  removeParams();
 });
 $("#showAIRcheckbox").click(() => {
   $(".AIR").toggle(this.checked);
+  removeParams();
 });
 $("#showFANcheckbox").click(() => {
   $(".FAN").toggle(this.checked);
+  removeParams();
 });
 $("#showCASEcheckbox").click(() => {
   $(".CASE").toggle(this.checked);
+  removeParams();
 });
+
+function removeParams() {
+  if(window.location.search)
+  window.history.pushState({}, window.location.href.replace(window.location.search, ""));
+}

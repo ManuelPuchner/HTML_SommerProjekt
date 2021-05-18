@@ -31,26 +31,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/*************** color-sheme *****************/
-@media (prefers-color-scheme: dark) {
-  html {
-    --bg: #171717;
-    --text-color: #f7f7f7;
-    --header-text-color: #f7f7f7;
-    --defineBg: hsla(103, 36%, 61%, 0.72);
-    --defineBg3: #8f947b;
-    --defineBg3-transparent: #8f947bbb;
-    --button-hover-color: #5aad39f5;
-    --button-active-color: #9caa69;
-    --bg2: #27272779;
-    --color1: hsl(168, 66%, 28%);
-    --brightness-filter: 50%;
-  }
-
-  footer a {
-    color: #32f05b !important;
-  }
-}
 * {
   margin: 0;
   padding: 0;
@@ -101,6 +81,7 @@ header {
           user-select: none;
   border-radius: 10px;
   margin: 7px;
+  width: calc( 100vw - 14px );
   z-index: 100;
   color: var(--header-text-color);
   display: flex;
@@ -108,7 +89,6 @@ header {
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
   position: fixed;
-  width: calc( 100vw - 14px );
 }
 header .branding a {
   color: var(--text-color2);
@@ -282,10 +262,11 @@ main {
   padding: 0 63px;
   font-size: 1.5rem;
   font-weight: bold;
+  color: var(--text-color);
 }
 .showcase .scrolldown {
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   right: 50vw;
   transform: translateX(50%);
   opacity: 1;
@@ -404,9 +385,9 @@ main {
 .featured .flex .wrapper, .partners .flex .wrapper, .products .flex .wrapper, .recommendations .flex .wrapper {
   max-width: 345.73px;
   box-sizing: border-box;
-  background: var(--defineBg);
+  background: var(--bg2);
   margin: 2%;
-  border-radius: 15px;
+  border-radius: 13px;
 }
 .featured .flex .wrapper .top__img, .partners .flex .wrapper .top__img, .products .flex .wrapper .top__img, .recommendations .flex .wrapper .top__img {
   z-index: 20;
@@ -465,6 +446,9 @@ main {
 }
 .featured .flex .wrapper .bottom__description, .partners .flex .wrapper .bottom__description, .products .flex .wrapper .bottom__description, .recommendations .flex .wrapper .bottom__description {
   margin: auto 0;
+}
+.featured .flex .wrapper .bottom__description a, .partners .flex .wrapper .bottom__description a, .products .flex .wrapper .bottom__description a, .recommendations .flex .wrapper .bottom__description a {
+  color: var(--text-color2) !important;
 }
 .featured .flex .wrapper .bottom__description h3, .partners .flex .wrapper .bottom__description h3, .products .flex .wrapper .bottom__description h3, .recommendations .flex .wrapper .bottom__description h3 {
   padding: 10% 13.5%;

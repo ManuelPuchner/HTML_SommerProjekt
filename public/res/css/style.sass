@@ -29,22 +29,22 @@ html
     box-sizing: border-box
     scroll-behavior: smooth
 
-/*************** color-sheme *****************/
-@media (prefers-color-scheme: dark)
-    html
-        --bg: #171717
-        --text-color: #f7f7f7
-        --header-text-color: #f7f7f7
-        --defineBg: hsla(103, 36%, 61%, 0.72)
-        --defineBg3: #8f947b
-        --defineBg3-transparent: #8f947bbb
-        --button-hover-color: #5aad39f5
-        --button-active-color: #9caa69
-        --bg2: #27272779
-        --color1: hsl(168, 66%, 28%)
-        --brightness-filter: 50%
-    footer a
-        color: #32f05b !important
+// /*************** color-sheme *****************/
+// @media (prefers-color-scheme: dark)
+//     html
+//         --bg: #171717
+//         --text-color: #f7f7f7
+//         --header-text-color: #f7f7f7
+//         --defineBg: hsla(103, 36%, 61%, 0.72)
+//         --defineBg3: #8f947b
+//         --defineBg3-transparent: #8f947bbb
+//         --button-hover-color: #5aad39f5
+//         --button-active-color: #9caa69
+//         --bg2: #27272779
+//         --color1: hsl(168, 66%, 28%)
+//         --brightness-filter: 50%
+//     footer a
+//         color: #32f05b !important
 *
     margin: 0
     padding: 0
@@ -79,13 +79,13 @@ header
     user-select: none
     border-radius: 10px
     margin: 7px
+    width: calc( 100vw - 14px )
     z-index: 100
     color: var(--header-text-color)
     display: flex
     background: var(--defineColor1-transparent)
     backdrop-filter: blur(7px)
     position: fixed
-    width: calc( 100vw - 14px )
 
     .branding
         a
@@ -215,9 +215,10 @@ main
         padding: 0 63px
         font-size: 1.5rem
         font-weight: bold
-    .scrolldown 
+        color: var(--text-color)
+    .scrolldown
         position: absolute
-        bottom: 40px
+        bottom: 30px
         right: 50vw
         transform: translateX(50%)
         opacity: 1
@@ -230,18 +231,17 @@ main
     font-size: 34px
     color: var(--text-color)
 
-
 @keyframes scrollIcon
     from
         height: 35px
-        opacity:0
+        opacity: 0
     10%
         height: 35px
-        opacity:1
+        opacity: 1
     to
         height: 18px
         opacity: 0
-            
+
 /**************** product presentation ****************/
 .product-presentation
     padding-top: 125px
@@ -301,9 +301,9 @@ main
         .wrapper
             max-width: 345.73px
             box-sizing: border-box
-            background: var(--defineBg)
+            background: var(--bg2)
             margin: 2%
-            border-radius: 15px
+            border-radius: 13px
             .top__img
                 z-index: 20
                 position: relative
@@ -356,6 +356,8 @@ main
                     opacity: 1
             .bottom__description
                 margin: auto 0
+                a
+                    color: var(--text-color2) !important
                 h3
                     padding: 10% 13.5%
                     text-align: center
@@ -540,7 +542,7 @@ main
                         max-width: 80px
                         padding: 10% 8% 10% 0
                         i
-                            transition: color  .2s ease
+                            transition: color .2s ease
                             vertical-align: bottom
                             padding: 10%
                             font-size: 150%
@@ -549,7 +551,7 @@ main
                         i:last-child
                             padding: 20% 10% 0
                         i:hover
-                            transition: color  200ms ease
+                            transition: color 200ms ease
                             color: var(--linkColor)
                         i:active
                             transition-duration: 60ms
@@ -794,7 +796,7 @@ footer
                 width: calc( 100% - 21px )
                 hr
                     display: none
-                        
+
         .product-information
             text-align: center
             .product__name
@@ -802,7 +804,7 @@ footer
             .information-list
                 margin-left: 0
                 li
-                
+
 @media screen and ( max-width: 720px )
     nav
         z-index: 0
@@ -851,7 +853,6 @@ footer
                     transform: translateX(-50%)
             .img-container
                 margin: 0 auto
-
 
 @media screen and ( min-width: 720px )
     nav
