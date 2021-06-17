@@ -26,6 +26,7 @@ $("#showCASEcheckbox").click(() => {
 });
 
 function removeParams() {
-  if(window.location.search)
-  window.history.pushState({}, window.location.href.replace(window.location.search, ""));
+  if(window.location.search) {
+    window.history.pushState({}, document.title, window.location.href.replace(window.location.search, ""));
+  }
 }
