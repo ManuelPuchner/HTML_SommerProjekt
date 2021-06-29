@@ -12,7 +12,7 @@ html {
   --text-color2: #f5f5f5;
   --header-text-color: #fff;
   --currentClassColor: #24B143;
-  --color1: #1B8570;
+  --color1: #116953;
   --color2: #24B143;
   --borderColor: #000;
   --defineBg: #a4dc8eb7;
@@ -760,6 +760,8 @@ main {
   display: block;
   margin-top: 10%;
   padding: 5%;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
 }
 #cart-page .side-menu #checkout__button:hover {
   color: #000;
